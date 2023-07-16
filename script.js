@@ -82,7 +82,7 @@ function game() {
   for (let i = 1; i <= 5; i++) {
     let playerSelection = getPlayerChoice();
     let computerSelection = getComputerChoice();
-    let roundReport = playRound(playerSelection, computerSelection);
+    const roundReport = playRound(playerSelection, computerSelection);
     if (roundReport.startsWith("You won")) {
       playerPoints++;
       alert(roundReport);
