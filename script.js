@@ -98,4 +98,5 @@ function game() {
   alert(getFinalReport(playerPoints, computerPoints));
 }
 
+
 game();
