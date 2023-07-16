@@ -14,8 +14,9 @@ function getComputerChoice() {
 }
 
 function getPlayerSelection() {
+  let selection;
   do {
-    let selection = prompt("Write rock, paper or scissors, depending on your choice.");
+    selection = prompt("Write rock, paper or scissors, depending on your choice.");
     selection = selection.toLowerCase();
     if (selection !== "rock" && selection !== "paper" && selection !== "scissors") {
       alert("The option you have chosen is incorrect, please choose again");
@@ -62,12 +63,39 @@ function playRound(playerSelection, computerSelection) {
   } 
 }
 
-
-
-function game() {
-
+function getFinalReport(playerPoints, computerPoints) {
+  if (playerPoints > computerPoints) {
+    return `You won the game: the final result is: Player(${playerPoints}) - Computer(${computerPoints})`;
+  }
+  else if (playerPoints < computerPoints) {
+    return `You lost the game: the final result is: Player(${playerPoints}) - Computer(${computerPoints})`;
+  }
+  else {
+    return `You tied the game: the final result is: Player(${playerPoints}) - Computer(${computerPoints})`;
+  }
 }
 
+function game() {
+  let playerPoints = 0;
+  let computerPoints = 0;
+  
+  for (let i = 1; i <= 5; i++) {
+    let playerSelection = getPlayerSelection();
+    let computerSelection = getComputerChoice();
+    let roundReport = playRound(playerSelection, computerSelection);
+    if (roundReport.startsWith("You won")) {
+      playerPoints++;
+      alert(roundReport);
+    }
+    else if (roundReport.startsWith("You lost")) {
+      computerPoints++;
+      alert(roundReport);
+    }
+    else {
+      alert(roundReport);
+    }
+  }
+  alert(getFinalReport(playerPoints, computerPoints));
+}
 
-
-
+game();
