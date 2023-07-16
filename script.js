@@ -13,8 +13,20 @@ function getComputerChoice() {
   }
 }
 
+function getPlayerSelection() {
+  do {
+    let selection = prompt("Write rock, paper or scissors, depending on your choice.");
+    selection = selection.toLowerCase();
+    if (selection !== "rock" && selection !== "paper" && selection !== "scissors") {
+      alert("The option you have chosen is incorrect, please choose again");
+    }
+  }while(selection !== "rock" && selection !== "paper" && selection !== "scissors");
+  
+  return selection;
+}
+
 function playRound(playerSelection, computerSelection) {
-  playerSelection = playerSelection.toLowerCase();
+  
   if (playerSelection === "rock") {
     if (computerSelection === "rock") {
       return "You tied the round. Both elections were rock";
@@ -37,7 +49,7 @@ function playRound(playerSelection, computerSelection) {
       return "You lost the round! Scissors beats paper";
     }
   } 
-  else if (playerSelection === "scissors") {
+  else {
     if (computerSelection === "rock") {
       return "You lost the round! Rock beats scissors";
     }
@@ -48,9 +60,12 @@ function playRound(playerSelection, computerSelection) {
       return "You tied the round. Both elections were scissors";
     }
   } 
-  else {
-    return "Your choice was wrong";
-  }
+}
+
+
+
+function game() {
+
 }
 
 
