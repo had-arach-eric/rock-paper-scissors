@@ -13,7 +13,7 @@ function getComputerChoice() {
   }
 }
 
-function getPlayerSelection() {
+function getPlayerChoice() {
   let selection;
   do {
     selection = prompt("Write rock, paper or scissors, depending on your choice.");
@@ -80,7 +80,7 @@ function game() {
   let computerPoints = 0;
   
   for (let i = 1; i <= 5; i++) {
-    let playerSelection = getPlayerSelection();
+    let playerSelection = getPlayerChoice();
     let computerSelection = getComputerChoice();
     let roundReport = playRound(playerSelection, computerSelection);
     if (roundReport.startsWith("You won")) {
