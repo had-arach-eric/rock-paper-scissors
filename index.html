@@ -13,14 +13,14 @@
 <body>
   <h1>ROCK-PAPER-SCISSORS GAME</h1>
   <div class="play-container">
-    <img src="./images/rock.svg" id="rock-button" class="play-buttons" alt="rock-button">
-    <img src="./images/paper.svg" id="paper-button" class="play-buttons" alt="paper-button">
-    <img src="./images/scissors.svg" id="scissors-button" class="play-buttons" alt="scissors-button">
+    <img src="./images/rock.svg" id="rock" class="play-buttons" alt="rock-button">
+    <img src="./images/paper.svg" id="paper" class="play-buttons" alt="paper-button">
+    <img src="./images/scissors.svg" id="scissors" class="play-buttons" alt="scissors-button">
   </div>
   <button id="reset-button" class="reset-button">Reset</button>
   <ul class="container-points">
-    <li>Player: 0</li>
-    <li>Computer: 0</li>
+    <li>Player: <span id="player-points">0</span></li>
+    <li>Computer: <span id="computer-points">0</span></li>
   </ul>
   <p id="message" class="message"></p>
 </body>

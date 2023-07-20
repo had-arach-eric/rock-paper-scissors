@@ -13,56 +13,59 @@ function getComputerChoice() {
   }
 }
 
-function getPlayerChoice() {
-  let selection;
-  do {
-    selection = prompt("Write rock, paper or scissors, depending on your choice.");
-    selection = selection.toLowerCase();
-    if (selection !== "rock" && selection !== "paper" && selection !== "scissors") {
-      alert("The option you have chosen is incorrect, please choose again");
-    }
-  }while(selection !== "rock" && selection !== "paper" && selection !== "scissors");
-  
-  return selection;
-}
+function playRound(playerSelection, computerSelection, points) {
+  const playerPointsUI = document.querySelector("#player-points");
+  const computerPointsUI = document.querySelector("#computer-points");
+  const message = document.querySelector("#message");
 
-function playRound(playerSelection, computerSelection) {
-  
   if (playerSelection === "rock") {
     if (computerSelection === "rock") {
-      return "You tied the round. Both elections were rock";
+      message.textContent = "You tied the round. Both elections were rock";
     }
     else if (computerSelection === "paper") {
-      return "You lost the round! Paper beats rock";
+      points.computerPoints++;
+      computerPointsUI.textContent = points.computerPoints; 
+      message.textContent = "You lost the round! Paper beats rock";
     }
     else {
-      return "You won the round! Rock beats scissors";
+      points.playerPoints++;
+      playerPointsUI.textContent = points.playerPoints; 
+      message.textContent = "You won the round! Rock beats scissors";
     }
   } 
   else if (playerSelection === "paper") {
     if (computerSelection === "rock") {
-      return "You won the round! Paper beats rock";
+      points.playerPoints++;
+      playerPointsUI.textContent = points.playerPoints; 
+      message.textContent = "You won the round! Paper beats rock";
     }
     else if (computerSelection === "paper") {
-      return "You tied the round. Both elections were paper";
+      message.textContent = "You tied the round. Both elections were paper";
     }
     else {
-      return "You lost the round! Scissors beats paper";
+      points.computerPoints++;
+      computerPointsUI.textContent = points.computerPoints;
+      message.textContent = "You lost the round! Scissors beats paper";
     }
   } 
   else {
     if (computerSelection === "rock") {
-      return "You lost the round! Rock beats scissors";
+      points.computerPoints++;
+      computerPointsUI.textContent = points.computerPoints;
+      message.textContent = "You lost the round! Rock beats scissors";
     }
     else if (computerSelection === "paper") {
-      return "You won the round! Scissors beats paper";
+      points.playerPoints++;
+      playerPointsUI.textContent = points.playerPoints; 
+      message.textContent = "You won the round! Scissors beats paper";
     }
     else {
-      return "You tied the round. Both elections were scissors";
+      message.textContent = "You tied the round. Both elections were scissors";
     }
   } 
 }
 
+/*
 function getFinalReport(playerPoints, computerPoints) {
   if (playerPoints > computerPoints) {
     return `You won the game: the final result is: Player(${playerPoints}) - Computer(${computerPoints})`;
@@ -74,29 +77,79 @@ function getFinalReport(playerPoints, computerPoints) {
     return `You tied the game: the final result is: Player(${playerPoints}) - Computer(${computerPoints})`;
   }
 }
+*/
 
 function game() {
-  let playerPoints = 0;
-  let computerPoints = 0;
+  const points = {
+    playerPoints: 0,
+    computerPoints: 0,
+  };
+
+  let playerSelection = "";
+  let computerSelection = getComputerChoice();
+  let playButtonsUI = document.querySelectorAll(".play-buttons");
+  let messageUI = document.querySelector("#message");
   
-  for (let i = 1; i <= 5; i++) {
-    let playerSelection = getPlayerChoice();
-    let computerSelection = getComputerChoice();
-    const roundReport = playRound(playerSelection, computerSelection);
-    if (roundReport.startsWith("You won")) {
-      playerPoints++;
-      alert(roundReport);
-    }
-    else if (roundReport.startsWith("You lost")) {
-      computerPoints++;
-      alert(roundReport);
-    }
-    else {
-      alert(roundReport);
-    }
+  for (let i = 0; i < playButtonsUI.length; i++) {
+    playButtonsUI[i].addEventListener("pointerdown", e => {
+      playButtonsUI[i].style.border = "4px solid red";
+    });
   }
+  for (let i = 0; i < playButtonsUI.length; i++) {
+    playButtonsUI[i].addEventListener("pointerup", e => {
+      playButtonsUI[i].style.border = "";
+    });
+  }
+  for (let i = 0; i < playButtonsUI.length; i++) {
+    playButtonsUI[i].addEventListener("click", e => {
+      playerSelection = e.target.getAttribute("id");
+    });
+  }
+
+  /*
+  for (button of playButtonsUI) {
+    button.addEventListener("mousedown", e => {
+      button.style.border = "4px solid red";
+    });
+  }
+  for (button of playButtonsUI) {
+    button.addEventListener("mouseup", e => {
+      button.style.border = "";
+    });
+  for (button of playButtonsUI) {
+    button.addEventListener("click", e => {
+      playerSelection = e.target.getAttribute("id");
+    });
+  }
+  */
+  
+  }
+
+  /*
+  playRound(playerSelection, computerSelection, points);
+}
+*/
+
+
+
+
+  /*
+  const roundReport = playRound(playerSelection, computerSelection);
+  if (roundReport.startsWith("You won")) {
+    playerPoints++;
+    alert(roundReport);
+  }
+  else if (roundReport.startsWith("You lost")) {
+    computerPoints++;
+    alert(roundReport);
+  }
+  else {
+    alert(roundReport);
+  }
+  
   alert(getFinalReport(playerPoints, computerPoints));
 }
+*/
 
 
 game();
