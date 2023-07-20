@@ -13,12 +13,12 @@ body {
   flex-flow: column wrap;
   align-items: center;
   align-content: center;
-  /*row-gap: 5vh;*/
+  row-gap: 10px;
 }
 
 h1 {
   font-size: 36px;
-  color: rgb(9, 114, 70);
+  color: rgb(14, 12, 124);
 }
 
 .play-container {
@@ -44,5 +44,4 @@ h1 {
 
 .final-message {
   font-size: 36px;
-  color: rgb(12, 47, 163);
 }
