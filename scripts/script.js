@@ -82,10 +82,7 @@ function resetUI(points, playerPointsUI, computerPointsUI, roundMessageUI, final
   finalMessageUI.textContent = "";
 }
 
-
-
-
-function game() {
+function playGame() {
   const points = {
     playerPoints: 0,
     computerPoints: 0,
@@ -120,4 +117,4 @@ function game() {
   }
 }
 
-game();
+playGame();
