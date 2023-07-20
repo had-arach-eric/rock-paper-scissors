@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="./styles/normalize.css">
+  <link rel="stylesheet" href="./styles/styles.css">
   <script src="./script.js" defer></script>
 </head>
+
 <body>
-  
+  <h1>ROCK-PAPER-SCISSORS GAME</h1>
+  <div class="play-container">
+    <img src="./images/rock.svg" id="rock-button" class="play-buttons" alt="rock-button">
+    <img src="./images/paper.svg" id="paper-button" class="play-buttons" alt="paper-button">
+    <img src="./images/scissors.svg" id="scissors-button" class="play-buttons" alt="scissors-button">
+  </div>
+  <button id="reset-button" class="reset-button">Reset</button>
+  <ul class="container-points">
+    <li>Player: 0</li>
+    <li>Computer: 0</li>
+  </ul>
+  <p id="message" class="message"></p>
 </body>
+
 </html>

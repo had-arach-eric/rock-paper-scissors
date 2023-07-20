@@ -1,0 +1,43 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  align-content: center;
+  row-gap: 5vh;
+}
+
+h1 {
+  font-size: 36px;
+  color: rgb(9, 114, 70);
+}
+
+.play-container {
+  display: flex;
+  column-gap: 5vh;
+}
+
+.play-buttons {
+  width: 20vh;
+  height: auto;
+}
+
+.reset-button {
+  width: 20vw;
+  height: 10vh;
+  font-size: 24px;
+}
+
+.container-points li {
+  list-style-type: none;
+  font-size: 24px;
+}
